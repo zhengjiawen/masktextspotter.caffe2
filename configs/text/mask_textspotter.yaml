@@ -90,7 +90,7 @@ IMAGE:
   rotate_delta: 15
 TEST:
   OUTPUT_POLYGON: False # only set to True for totaltext
-  WEIGHTS: ./data/model_iter79999.pkl
+  WEIGHTS: /data/home/zjw/pythonFile/masktextspotter.caffe2/data/model_iter79999.pkl
   DATASETS: ('icdar2015_test',)
   SCALES: (1000,)
   MAX_SIZE: 3333
