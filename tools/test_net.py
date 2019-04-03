@@ -44,6 +44,7 @@ from datasets import task_evaluation
 import utils.c2
 import utils.logging
 
+sys.path.append("/data/home/zjw/pythonFile/masktextspotter.caffe2/lib")
 utils.c2.import_detectron_ops()
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
 # thread safe and causes unwanted GPU memory allocations.
