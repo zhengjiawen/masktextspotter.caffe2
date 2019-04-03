@@ -111,7 +111,7 @@ def im_detect_all(model, im, image_name, box_proposals, timers=None, vis=False):
                 poly_map = cv2.erode(poly_map,SE1) 
                 poly_map = cv2.dilate(poly_map,SE1);
                 poly_map = cv2.morphologyEx(poly_map,cv2.MORPH_CLOSE,SE1)
-                im2,contours,hierarchy = cv2.findContours((poly_map*255).astype(np.uint8), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+                contours,hierarchy = cv2.findContours((poly_map*255).astype(np.uint8), cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
                 max_area=0
                 max_cnt = contours[0]
                 for cnt in contours:
@@ -1216,7 +1216,7 @@ def seg2text(gray, mask, seg):
     ## input numpy
     img_h, img_w = gray.shape
     ret, thresh = cv2.threshold(gray, 192, 255, cv2.THRESH_BINARY)
-    im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     chars = []
     scores = []
     for i in range(len(contours)):
