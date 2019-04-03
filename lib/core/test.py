@@ -34,6 +34,9 @@ from collections import defaultdict
 import cv2
 import logging
 import numpy as np
+import sys
+
+sys.path.append('/data/home/zjw/pythonFile/masktextspotter.caffe2')
 
 from caffe2.python import core
 from caffe2.python import workspace
