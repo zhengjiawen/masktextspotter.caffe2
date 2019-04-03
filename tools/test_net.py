@@ -29,6 +29,8 @@ import pprint
 import sys
 import time
 
+sys.path.append("/data/home/zjw/pythonFile/masktextspotter.caffe2/lib")
+
 from caffe2.python import workspace
 
 from core.config import assert_and_infer_cfg
@@ -44,8 +46,8 @@ from datasets import task_evaluation
 import utils.c2
 import utils.logging
 
-sys.path.append("/data/home/zjw/pythonFile/masktextspotter.caffe2/lib")
-print(sys.path)
+# sys.path.append("/data/home/zjw/pythonFile/masktextspotter.caffe2/lib")
+# print(sys.path)
 utils.c2.import_detectron_ops()
 # OpenCL may be enabled by default in OpenCV3; disable it because it's not
 # thread safe and causes unwanted GPU memory allocations.
