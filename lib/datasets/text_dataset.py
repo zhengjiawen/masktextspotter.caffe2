@@ -193,16 +193,17 @@ class TextDataSet(object):
                             charboxes.append(charbbs)
         if len(boxes) > 0:
             if self.use_charann:
+                # print(charboxes)
                 if not len(charboxes):
                     charboxes = np.zeros((0, 10), dtype=np.float32)
                 else:
                     charboxes = np.vstack(charboxes)
-                return words, np.array(boxes), np.array(polygons), np.vstack(charboxes), np.array(seg_areas), segmentations
+                return words, np.array(boxes), np.array(polygons), charboxes, np.array(seg_areas), segmentations
             else:
                 charbbs = np.zeros((0, 10), dtype=np.float32)
                 return words, np.array(boxes), np.array(polygons), charbbs, np.array(seg_areas), segmentations
         else:
-            return [], np.zeros((0, 4), dtype=np.float32), np.zeros((0, 8), dtype=np.float32), np.zeros((0, 10), dtype=np.float32), np.zeros((0), dtype=np.float32), []
+            return [], np.zeros((0, 4), dtype=np.float32), np.zeros((0, 8), dtype=np.float32), np.zeros((0, 10),dtype=np.float32), np.zeros((0), dtype=np.float32), []
 
     def load_text_annotation(self, index):
         """
