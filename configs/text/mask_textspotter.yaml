@@ -9,10 +9,10 @@ NUM_GPUS: 1
 SOLVER:
   WEIGHT_DECAY: 0.0001
   LR_POLICY: steps_with_decay
-  BASE_LR: 0.00075   #synth
+  BASE_LR: 0.005   #synth
   GAMMA: 0.1
-  MAX_ITER: 1600000
-  STEPS: [0, 960000]
+  MAX_ITER: 200000
+  STEPS: [0, 120000]
 FPN:
   FPN_ON: True
   MULTILEVEL_ROIS: True
