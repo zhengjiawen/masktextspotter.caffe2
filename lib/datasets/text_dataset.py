@@ -193,6 +193,10 @@ class TextDataSet(object):
                             charboxes.append(charbbs)
         if len(boxes) > 0:
             if self.use_charann:
+                if not len(charboxes):
+                    charboxes = np.zeros((0, 10), dtype=np.float32)
+                else:
+                    charboxes = np.vstack(charboxes)
                 return words, np.array(boxes), np.array(polygons), np.vstack(charboxes), np.array(seg_areas), segmentations
             else:
                 charbbs = np.zeros((0, 10), dtype=np.float32)
