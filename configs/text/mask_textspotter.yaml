@@ -9,10 +9,10 @@ NUM_GPUS: 1
 SOLVER:
   WEIGHT_DECAY: 0.0001
   LR_POLICY: steps_with_decay
-  BASE_LR: 0.005   #synth
+  BASE_LR: 0.00075   #synth
   GAMMA: 0.1
-  MAX_ITER: 200000
-  STEPS: [0, 120000]
+  MAX_ITER: 1600000
+  STEPS: [0, 960000]
 FPN:
   FPN_ON: True
   MULTILEVEL_ROIS: True
@@ -50,7 +50,7 @@ TRAIN:
 
   ##################### pre-train on synth ##########################
   WEIGHTS: https://dl.fbaipublicfiles.com/detectron/ImageNetPretrained/MSRA/R-50.pkl
-  DATASETS: ('synth_train', )
+  DATASETS: ('icdar2015_train', )
   SCALES: (800,)
   MAX_SIZE: 1333
   IMS_PER_BATCH: 2
