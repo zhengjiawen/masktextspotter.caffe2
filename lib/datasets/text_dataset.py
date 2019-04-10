@@ -151,9 +151,12 @@ class TextDataSet(object):
         for line in  lines:
             try:
                 strs, loc = self.line2boxes(line)
-            except ValueError, e:
-                print(gt_path)
-            word = strs[0]
+
+                word = strs[0]
+            except (ValueError,UnboundLocalError), e:
+
+                print("ValueError:"+gt_path)
+                print(e.message)
             if word == '###':
                 continue
             else:
