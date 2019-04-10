@@ -5,14 +5,14 @@ MODEL:
   FASTER_RCNN: True
   MASK_ON: True
   NAME: shrink++
-NUM_GPUS: 1
+NUM_GPUS: 2
 SOLVER:
   WEIGHT_DECAY: 0.0001
   LR_POLICY: steps_with_decay
-  BASE_LR: 0.005   #synth
+  BASE_LR: 0.01   #synth
   GAMMA: 0.1
-  MAX_ITER: 200000
-  STEPS: [0, 120000]
+  MAX_ITER: 100000
+  STEPS: [0, 60000]
 FPN:
   FPN_ON: True
   MULTILEVEL_ROIS: True
