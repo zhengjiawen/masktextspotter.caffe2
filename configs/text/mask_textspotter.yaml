@@ -50,7 +50,7 @@ TRAIN:
 
   ##################### pre-train on synth ##########################
   WEIGHTS: https://dl.fbaipublicfiles.com/detectron/ImageNetPretrained/MSRA/R-50.pkl
-  DATASETS: ('icdar2019_train', )
+  DATASETS: ('icdar2015_train', )
   SCALES: (800,)
   MAX_SIZE: 1333
   IMS_PER_BATCH: 2
