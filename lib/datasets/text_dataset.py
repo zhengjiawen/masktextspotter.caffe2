@@ -149,7 +149,10 @@ class TextDataSet(object):
         lines = open(gt_path).readlines()
         words, boxes, polygons, charboxes, seg_areas, segmentations = [], [], [], [], [], []
         for line in  lines:
-            strs, loc = self.line2boxes(line)
+            try:
+                strs, loc = self.line2boxes(line)
+            except ValueError, e:
+                print(gt_path)
             word = strs[0]
             if word == '###':
                 continue
