@@ -85,7 +85,7 @@ class TextDataSet(object):
         return image_set_index
 
     def image_path_from_index(self, index):
-        image_file = os.path.join(self.image_directory, index,'.jpg')
+        image_file = os.path.join(self.image_directory, str(index)+'.jpg')
         assert os.path.exists(image_file), 'Path does not exist: {}'.format(image_file)
         return image_file
 
