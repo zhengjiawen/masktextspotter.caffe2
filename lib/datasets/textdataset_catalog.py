@@ -89,6 +89,24 @@ DATASETS = {
         IM_LIST:
             _DATA_DIR + '/icdar2015/test_list.txt'
     },
+    'icdar2019_train': {
+        IM_DIR:
+            _DATA_DIR + '/icdar2019/train_images',
+        # use filtered validation as there is an issue converting contours
+        ANN_FN:
+            _DATA_DIR + '/icdar2019/train_gts',
+        IM_LIST:
+            _DATA_DIR + '/icdar2019/train_list.txt'
+    },
+    'icdar2019_test': {
+        IM_DIR:
+            _DATA_DIR + '/icdar2019/test_images',
+        # use filtered validation as there is an issue converting contours
+        ANN_FN:
+            _DATA_DIR + '/icdar2019/test_gts',
+        IM_LIST:
+            _DATA_DIR + '/icdar2019/test_list.txt'
+    },
     'totaltext_train': {
         IM_DIR:
             _DATA_DIR + '/totaltext/train_images',
