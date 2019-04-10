@@ -110,8 +110,11 @@ class TextDataSet(object):
             cPickle.dump(gt_roidb, fid, cPickle.HIGHEST_PROTOCOL)
         return gt_roidb
 
-
+# 已修改为可以使用value里有逗号的
     def line2boxes(self, line):
+        dotFlag = False
+        if line.strip().endswith(','):
+            dotFlag = True
         if self.name == 'totaltext_train':
             parts = line.strip().split(',')
             return [parts[-1]], np.array([[float(x) for x in parts[:-1]]])
@@ -121,6 +124,14 @@ class TextDataSet(object):
                 parts[0] = parts[0][3:]
             if '\ufeff' in parts[0]:
                 parts[0] = parts[0].replace('\ufeff', '')
+            if len(parts) > 9:
+                list = []
+                tempStr = ','.join(parts[8:-1])
+                if dotFlag:
+                    tempStr += ','
+                list.extend(parts[0:8])
+                list.append(tempStr)
+                parts = list
             x1 = np.array([int(float(x)) for x in parts[::9]])
             y1 = np.array([int(float(x)) for x in parts[1::9]])
             x2 = np.array([int(float(x)) for x in parts[2::9]])
